@@ -1,16 +1,26 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CONNECTION_ACTION_TYPES } from "./reducers-actions/connectionActions";
 
 const App = () => {
+  const dispatch = useDispatch();
+  let { connection } = useSelector((state) => ({ ...state }));
+
   // Connection string and socket
   const ws = new WebSocket("ws://localhost:8000");
 
   useEffect(() => {
     handleConnection();
-  }, [ws]);
+  }, []);
 
   const handleConnection = () => {
     ws.onopen = (res) => console.log("Open Connection ====>", res);
-    ws.onmessage = (res) => console.log("Message from backend ====>", JSON.parse(res.data));
+    ws.onmessage = (res) => {
+      dispatch({
+        type: CONNECTION_ACTION_TYPES.LOAD_ALL_CONNECTIONS,
+        payload: JSON.parse(res.data),
+      });
+    };
   };
 
   const handleSendData = () => {
@@ -18,11 +28,13 @@ const App = () => {
   };
 
   return (
-    <div className=" flex justify-center flex-col items-center h-screen">
-      <h2 className="text-7xl text-red-500">Group 1 Project</h2>
+    <div className="flex flex-col items-center justify-center h-screen ">
+      <h2 className="text-red-500 text-7xl">Group 1 Project</h2>
       <div className="my-3">
         <button onClick={handleSendData}>Click me!</button>
       </div>
+
+      {JSON.stringify(connection)}
     </div>
   );
 };

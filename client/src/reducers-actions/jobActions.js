@@ -1,0 +1,4 @@
+export const JOB_ACTIONS = {
+  LOAD_ALL_JOBS: "LOAD_ALL_JOBS",
+  CREATE_JOB: "CREATE_JOB",
+};
