@@ -1,21 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Button from "./components/Button";
+import { useDispatch } from "react-redux";
+import Button from "./components/Button/Button";
 import { CONNECTION_ACTION_TYPES } from "./reducers-actions/connectionActions";
-import { BUTTON_TYPE_CLASSES } from "./components/Button";
+import { BUTTON_TYPE_CLASSES } from "./components/Button/Button";
+import { ws } from "./utils/socketConnection";
+import ModalComponent from "./components/Modal/ModalComponent";
 
 const App = () => {
   const dispatch = useDispatch();
-  let { connection } = useSelector((state) => ({ ...state }));
-
-  // Connection string and socket
-  const ws = new WebSocket("ws://localhost:8000");
 
   useEffect(() => {
-    handleConnection();
-  }, []);
-
-  const handleConnection = () => {
     ws.onopen = (res) => console.log("Open Connection ====>", res);
     ws.onmessage = (res) => {
       dispatch({
@@ -23,7 +17,7 @@ const App = () => {
         payload: JSON.parse(res.data),
       });
     };
-  };
+  }, [dispatch]);
 
   const handleSendData = () => {
     ws.send(JSON.stringify({ type: "MineService", action: "LOAD_ALL_CONNECTIONS" }));
@@ -43,8 +37,7 @@ const App = () => {
           Click me!
         </Button>
       </div>
-
-      {JSON.stringify(connection)}
+      <ModalComponent />
     </div>
   );
 };
