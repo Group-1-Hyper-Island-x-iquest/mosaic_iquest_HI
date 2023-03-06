@@ -19,9 +19,10 @@ const loadWsResponse = (message) => {
       if (message.job.type === "se.iquest.iqmine.poller.SMHIPoller")
         return createJobResponse(message.job);
       return { action: "RUN_EXPLORER_FAILED", message: "Invalid job type" };
-    default:
-      const wsResponse = responses.find((respone) => respone.action.startsWith(message.action)); //Returns object if found, otherwise returns undefined.
-      if (wsResponse) return wsResponse; //if wsResponse is not undefined
+    default: //Returns object if found, otherwise returns undefined.
+    //if wsResponse is not undefined
+      const wsResponse = responses.find((response) => response.action.startsWith(message.action));
+      if (wsResponse) return wsResponse;
       return { action: "ERROR", message: "Invalid command" };
   }
 };
