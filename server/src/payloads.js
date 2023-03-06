@@ -60,15 +60,16 @@ const requests = [
 
 const responses = [
   {
+    action: "LOAD_ALL_CONNECTIONS_SUCCESS",
     payload: [
       {
-        password: "",
-        address: "something1",
+        password: "3131323233",
+        address: "test address",
         port: 0,
         forecastLength: 10,
         name: "smhi1",
         explorer: "se.iquest.iqmine.explorers.SMHIExplorer",
-        description: "",
+        description: "a very long test description for a connection",
         locations: [
           {
             country: "Sweden",
@@ -81,7 +82,7 @@ const responses = [
         ],
         type: "se.iquest.iqmine.connections.SMHIConnection",
         uuid: "3708f64d-b12f-4373-b53f-2e327e2e20fd",
-        username: "",
+        username: "test",
       },
       {
         password: "51465676454654",
@@ -103,7 +104,7 @@ const responses = [
         ],
         type: "se.iquest.iqmine.connections.SMHIConnection",
         uuid: "3708f64d-b12f-4373-b53f-2e327e2e20fd",
-        username: "",
+        username: "franktest",
       },
       {
         password: "",
@@ -128,15 +129,15 @@ const responses = [
         username: "",
       },
     ],
-    action: "LOAD_ALL_CONNECTIONS_SUCCESS",
   },
   {
+    action: "LOAD_ALL_JOBS_SUCCESS",
     payload: [
       {
         avg_runtime: 0.0,
         lastRun: "2022-09-30T11:04:37.177Z",
         minHistoryInterval: "TENMINUTE",
-        description: "",
+        description: "yayaayaayayaayayakshdlkhdhadhfajhfahfahfh",
         type: "se.iquest.iqmine.poller.SMHIPoller",
         uuid: "56ba9870-e5c6-4ea5-afc3-d824d344f0d7",
         running: false,
@@ -147,9 +148,9 @@ const responses = [
         status: "inactive",
       },
     ],
-    action: "LOAD_ALL_JOBS_SUCCESS",
   },
   {
+    action: "LOAD_ALL_FILES_SUCCESS",
     payload: {
       configs: [
         "poller_2910 Hubimport 1.xml",
@@ -203,9 +204,9 @@ const responses = [
       ],
       miners: ["exporter_grafminer_test-2022-10-13.log.gz", "exporter_grafminer_test.log"],
     },
-    action: "LOAD_ALL_FILES_SUCCESS",
   }, //Is this needed?
   {
+    action: "LOAD_ALL_EXPLORERS_SUCCESS",
     payload: [
       {
         name: "AH-Energi",
@@ -328,17 +329,17 @@ const responses = [
         class: "se.iquest.iqmine.explorers.ZabbixExplorer",
       },
     ],
-    action: "LOAD_ALL_EXPLORERS_SUCCESS",
   },
   {
-    payload: [],
     action: "LOAD_ALL_SCRIPTS_SUCCESS",
+    payload: [],
   },
 ];
 
 const createConnectionResponse = (data) => {
   const uuid = v4();
   return {
+    action: "CREATED_CONNECTION",
     payload: {
       password: "",
       address: "",
@@ -352,12 +353,12 @@ const createConnectionResponse = (data) => {
       uuid: uuid,
       username: "",
     },
-    action: "CREATED_CONNECTION",
   };
 };
 
 const createJobResponse = (data) => {
   return {
+    action: "RUN_EXPLORER_SUCCESS",
     payload: {
       dataPoints: [
         {
@@ -1481,7 +1482,6 @@ const createJobResponse = (data) => {
         },
       ],
     },
-    action: "RUN_EXPLORER_SUCCESS",
   };
 };
 
