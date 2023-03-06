@@ -4,9 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
 import { Link } from "react-router-dom";
 
+//The component initializes a Redux dispatch variable using the useDispatch hook
+//and a connection variable using the useSelector hook to extract the connection state from
+//the Redux store.
+
 const CreateConnection = () => {
   const dispatch = useDispatch();
   let { connection } = useSelector((state) => ({ ...state }));
+
+//The useEffect hook is used to call the loadConnectionsData function when the component 
+//mounts. 
+//The loadConnectionsData function sends a message to a WebSocket using the ws utility, and
+// when the WebSocket sends a response, it dispatches an action to the Redux store.
 
   useEffect(() => {
     loadConnectionsData();
