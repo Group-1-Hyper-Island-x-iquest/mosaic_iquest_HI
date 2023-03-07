@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { ws } from "../../utils/webSocket";
 import { useDispatch, useSelector } from "react-redux";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
-import { Link } from "react-router-dom";
+import Form from "../../components/Forms/Form";
+import { BUTTON_TYPE_CLASSES } from "../../components/Button/Button";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,26 @@ const Dashboard = () => {
   useEffect(() => {
     loadConnectionsData();
   }, []);
+
+  const handleSubmit = (formData) => {
+    console.log(formData);
+  };
+
+  const fields = [
+    { type: "text", name: "name", label: "Name" },
+    { type: "email", name: "email", label: "Email" },
+    { type: "textarea", name: "message", label: "Message" },
+    {
+      type: "select",
+      name: "gender",
+      label: "Gender",
+      options: [
+        { value: "male", label: "Male" },
+        { value: "female", label: "Female" },
+        { value: "other", label: "Other" },
+      ],
+    },
+  ];
 
   const loadConnectionsData = () => {
     ws.send(JSON.stringify({ type: "MineService", action: "LOAD_ALL_CONNECTIONS" }));
@@ -24,7 +45,11 @@ const Dashboard = () => {
 
   console.log(connection);
 
-  return <div className="text-center">DashBoard</div>;
+  return (
+    <div className="flex">
+      <Form fields={fields} buttonClass={BUTTON_TYPE_CLASSES.btn_primary} onSubmit={handleSubmit} />
+    </div>
+  );
 };
 
 export default Dashboard;
