@@ -3,8 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     backgroundImage: {
-      topNavImage: "url('./assets/images/Header.png')",
+      topNavImage: "url('../assets/images/Header.png')",
     },
+
     screens: {
       sm: "480px",
       md: "768px",
@@ -15,9 +16,10 @@ module.exports = {
       background: "#EEEEEE",
       mosaicBorderGray: "#D0D5DD",
       mosaicDarkGray: "#757575",
-      mosaicLightGray: "#757575",
-      mosaicGreen: "#67AC5B",
+      mosaicLightGray: "#FBFBFB",
+      mosaicGreen: "#21635C",
       mosaicBlue: "#617AFF",
+      mosaicBlack: "#000",
     },
     fontFamily: {
       Comfortaa: ["Comfortaa", "sans-serif"],
