@@ -65,9 +65,7 @@ const Form = (props) => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       {fields.map((field) => renderField(field))}
-      <Button buttonType={buttonClass} type="submit">
-        Submit
-      </Button>
+      <Button buttonType={buttonClass}>Submit</Button>
     </form>
   );
 };

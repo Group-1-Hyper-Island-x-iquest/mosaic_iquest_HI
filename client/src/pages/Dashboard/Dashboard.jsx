@@ -11,6 +11,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     loadConnectionsData();
+    // eslint-disable-next-line
   }, []);
 
   const handleSubmit = (formData) => {
@@ -42,8 +43,6 @@ const Dashboard = () => {
       });
     };
   };
-
-  console.log(connection);
 
   return (
     <div className="flex">

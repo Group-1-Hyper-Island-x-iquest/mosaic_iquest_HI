@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { ws } from "../../utils/webSocket";
 import { useDispatch, useSelector } from "react-redux";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
-import { Link } from "react-router-dom";
 
 const CreateConnection = () => {
   const dispatch = useDispatch();
@@ -10,6 +9,7 @@ const CreateConnection = () => {
 
   useEffect(() => {
     loadConnectionsData();
+    // eslint-disable-next-line
   }, []);
 
   const loadConnectionsData = () => {
