@@ -3,6 +3,8 @@ import { ws } from "../../utils/webSocket";
 import { useDispatch, useSelector } from "react-redux";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
 import { Link } from "react-router-dom";
+import InfoTile from "../../components/InfoTile/InfoTile"
+import TileWrapper from "../../components/InfoTile/TileWrapper";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -24,7 +26,12 @@ const Dashboard = () => {
 
   console.log(connection);
 
-  return <div className="text-center">DashBoard</div>;
+  return <>
+  <TileWrapper />
+ 
+
+  <div className="text-center">DashBoard</div>
+  </>;
 };
 
 export default Dashboard;

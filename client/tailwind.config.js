@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     backgroundImage: {
-      topNavImage: "url('./assets/images/Header.png')",
+      topNavImage:
+        "url('./assets/images/Header.png')",
     },
     screens: {
       sm: "480px",
@@ -12,6 +15,7 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
+      mosaicWhite: "#FCFCFC",
       background: "#EEEEEE",
       mosaicBorderGray: "#D0D5DD",
       mosaicDarkGray: "#757575",
@@ -20,7 +24,10 @@ module.exports = {
       mosaicBlue: "#617AFF",
     },
     fontFamily: {
-      Comfortaa: ["Comfortaa", "sans-serif"],
+      Comfortaa: [
+        "Comfortaa",
+        "sans-serif",
+      ],
       Arial: ["Arial", "sans-serif"],
     },
     extend: {
