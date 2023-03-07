@@ -10,6 +10,7 @@ const InfoTile = () => {
   return (
     <>
       <div className="tile_beauty">
+  
       <h1 className="test">Alerts</h1>
       <h2>0</h2>
       </div>
@@ -18,3 +19,4 @@ const InfoTile = () => {
 };
 
 export default InfoTile;
+
