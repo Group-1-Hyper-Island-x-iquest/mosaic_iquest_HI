@@ -49,13 +49,15 @@ const Form = (props) => {
               onChange={handleInputChange}
             />
           ) : (
-            <input
-              placeholder="Required"
-              className="formInput"
-              type={type}
-              name={name}
-              onChange={handleInputChange}
-            />
+            <div className="w-1/2">
+              <input
+                placeholder="Required"
+                className="formInput"
+                type={type}
+                name={name}
+                onChange={handleInputChange}
+              />
+            </div>
           )}
         </div>
       );
@@ -65,7 +67,9 @@ const Form = (props) => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       {fields.map((field) => renderField(field))}
-      <Button buttonType={buttonClass}>Submit</Button>
+      <div className="flex justify-end w-full ">
+        <Button buttonType={buttonClass}>Submit</Button>
+      </div>
     </form>
   );
 };

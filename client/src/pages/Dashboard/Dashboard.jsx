@@ -1,52 +1,44 @@
-import React, { useEffect } from "react";
-import { ws } from "../../utils/webSocket";
-import { useDispatch, useSelector } from "react-redux";
-import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
-import Form from "../../components/Forms/Form";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { BUTTON_TYPE_CLASSES } from "../../components/Button/Button";
+import { showModal, hideModal } from "../../reducers-actions/modalActions";
+import Form from "../../components/Forms/Form";
+import { fields1 } from "../../utils/FormTypes";
+import { Modal } from "antd";
 
 const Dashboard = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
-  let { connection } = useSelector((state) => ({ ...state }));
 
-  useEffect(() => {
-    loadConnectionsData();
-    // eslint-disable-next-line
-  }, []);
+  const handleShowModal = () => {
+    setModalOpen(true);
+    dispatch(showModal());
+  };
+
+  const handleHideModal = () => {
+    setModalOpen(false);
+    dispatch(hideModal());
+  };
 
   const handleSubmit = (formData) => {
     console.log(formData);
   };
 
-  const fields = [
-    { type: "text", name: "name", label: "Name" },
-    { type: "email", name: "email", label: "Email" },
-    { type: "textarea", name: "message", label: "Message" },
-    {
-      type: "select",
-      name: "gender",
-      label: "Gender",
-      options: [
-        { value: "male", label: "Male" },
-        { value: "female", label: "Female" },
-        { value: "other", label: "Other" },
-      ],
-    },
-  ];
-
-  const loadConnectionsData = () => {
-    ws.send(JSON.stringify({ type: "MineService", action: "LOAD_ALL_CONNECTIONS" }));
-    ws.onmessage = (res) => {
-      dispatch({
-        type: CONNECTION_ACTION_TYPES.LOAD_ALL_CONNECTIONS,
-        payload: JSON.parse(res.data),
-      });
-    };
-  };
-
   return (
     <div className="flex">
-      <Form fields={fields} buttonClass={BUTTON_TYPE_CLASSES.btn_primary} onSubmit={handleSubmit} />
+      <Modal
+        okButtonProps={{ hidden: true }}
+        cancelButtonProps={{ hidden: true }}
+        open={modalOpen}
+        onCancel={handleHideModal}
+      >
+        <Form
+          fields={fields1}
+          buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+          onSubmit={handleSubmit}
+        />
+      </Modal>
+      <button onClick={handleShowModal}>Create connection</button>
     </div>
   );
 };

@@ -10,10 +10,10 @@ import CreateJob from "./pages/CreateJob/CreateJob";
 const App = () => {
   useEffect(() => {
     handleConnection();
-  });
+  }, []);
 
   const handleConnection = () => {
-    ws.onopen = (res) => console.log("Open Connection ====>", res);
+    ws.onopen = (res) => res;
   };
 
   return (
