@@ -5,3 +5,7 @@
 .tile_container {
   @apply flex justify-center flex space-x-24 mb-[50px];
 }
+
+.divider {
+  @apply;border-[0.5px] bg-mosaicLineGray opacity-25 w-[1240px] mx-auto;
+}

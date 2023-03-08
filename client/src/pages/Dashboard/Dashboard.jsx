@@ -41,7 +41,7 @@ const Dashboard = () => {
   return (
     <>
       <TileWrapper />
-
+      <div className="divider"> </div>
       <div className="text-center">
         DashBoard
       </div>

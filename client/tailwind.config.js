@@ -17,6 +17,7 @@ module.exports = {
     colors: {
       mosaicWhite: "#FCFCFC",
       background: "#EEEEEE",
+      mosaicLineGray: "#C4C7CC",
       mosaicBorderGray: "#D0D5DD",
       mosaicDarkGray: "#757575",
       mosaicLightGray: "#757575",
