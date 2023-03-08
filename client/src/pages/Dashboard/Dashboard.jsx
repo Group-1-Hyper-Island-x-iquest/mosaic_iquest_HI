@@ -3,15 +3,17 @@ import { useDispatch } from "react-redux";
 import { BUTTON_TYPE_CLASSES } from "../../components/Button/Button";
 import { showModal, hideModal } from "../../reducers-actions/modalActions";
 import Form from "../../components/Forms/Form";
-import { fields1 } from "../../utils/FormTypes";
+import { connectionType, caseSHMI } from "../../utils/FormTypes";
 import { Modal } from "antd";
 
 const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [type, setType] = useState(null);
   const dispatch = useDispatch();
 
   const handleShowModal = () => {
     setModalOpen(true);
+    setType(null);
     dispatch(showModal());
   };
 
@@ -21,7 +23,25 @@ const Dashboard = () => {
   };
 
   const handleSubmit = (formData) => {
-    console.log(formData);
+    console.log(formData["connection type"]);
+    // step 1: store the formData val in useState // reducer
+    setType(formData["connection type"]);
+  };
+
+  const RenderFormChildren = ({ type }) => {
+    switch (type) {
+      case "smhi": {
+        return (
+          <Form
+            fields={caseSHMI}
+            buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+            onSubmit={handleSubmit}
+          />
+        );
+      }
+      default:
+        return null;
+    }
   };
 
   return (
@@ -29,14 +49,18 @@ const Dashboard = () => {
       <Modal
         okButtonProps={{ hidden: true }}
         cancelButtonProps={{ hidden: true }}
+        destroyOnClose
         open={modalOpen}
         onCancel={handleHideModal}
       >
-        <Form
-          fields={fields1}
-          buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
-          onSubmit={handleSubmit}
-        />
+        {!type && (
+          <Form
+            fields={connectionType}
+            buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+            onSubmit={handleSubmit}
+          />
+        )}
+        <RenderFormChildren type={type} />
       </Modal>
       <button onClick={handleShowModal}>Create connection</button>
     </div>
