@@ -7,10 +7,7 @@ module.exports = {
     backgroundImage: {
       topNavImage:
         "url('./assets/images/Header.png')",
-      alertLogo:
-        "url('./assets/logo/AlertLogo.png')",
     },
-
     screens: {
       sm: "480px",
       md: "768px",
