@@ -1,13 +1,17 @@
 import React from "react";
 import "./CreateTile.css";
-import PlusIcon from "../../assets/logo/PlusIcon";
 
-const CreateTile = () => {
+const CreateTile = (props) => {
+  const { title, icon } = props;
   return (
     <>
       <div className="createTile">
-        Create new connection{" "}
-        <PlusIcon className="PlusIcon" />
+        <h1 className="create_tile_title">
+          {title}
+        </h1>
+        <div className="plus_icon">
+          {icon}
+        </div>
       </div>
     </>
   );
