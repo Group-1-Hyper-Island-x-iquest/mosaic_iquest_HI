@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HomeLogo from "../../assets/logo/HomeLogo";
 import ProfileLogo from "../../assets/logo/ProfileLogo";
-import {}
+import { FaUserCircle } from "react-icons/fa";
+import { RxMagnifyingGlass } from "react-icons/rx";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const Navigation = () => {
   return (
@@ -14,16 +16,29 @@ const Navigation = () => {
         <div className="home_logo">
           <HomeLogo />/ DASHBOARD
         </div>
-        <div>
+        <div className="searchBarBox">
           <input
             type="search"
             placeholder="Search"
             className="searchBar"
           />
+          <RxMagnifyingGlass
+            className="searchGlass"
+            size={26}
+          />
         </div>
-        <div>
+        <div className="profile_logo">
           {" "}
-          <ProfileLogo />
+          <FaUserCircle
+            style={{
+              color: "black",
+            }}
+            size={23}
+          />
+          <p>HI_MINER</p>
+          <MdOutlineKeyboardArrowDown
+            size={23}
+          />
         </div>
       </nav>
       <nav className="bottom_nav">
