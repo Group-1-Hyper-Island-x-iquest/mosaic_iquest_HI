@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HomeLogo from "../../assets/logo/HomeLogo";
+import ProfileLogo from "../../assets/logo/ProfileLogo";
+import {}
 
 const Navigation = () => {
   return (
@@ -8,11 +11,19 @@ const Navigation = () => {
         <h2>mosaic</h2>
       </nav>
       <nav className="mid_nav">
-        <div>
-          <p>Hi miner</p>
+        <div className="home_logo">
+          <HomeLogo />/ DASHBOARD
         </div>
         <div>
-          <input type="search" placeholder="Search" className="searchBar" />
+          <input
+            type="search"
+            placeholder="Search"
+            className="searchBar"
+          />
+        </div>
+        <div>
+          {" "}
+          <ProfileLogo />
         </div>
       </nav>
       <nav className="bottom_nav">
@@ -21,16 +32,25 @@ const Navigation = () => {
             <Link to="/"> Home</Link>
           </li>
           <li>
-            <Link to="/create-new-connection"> Connections</Link>
+            <Link to="/create-new-connection">
+              {" "}
+              Connections
+            </Link>
           </li>
           <li>
-            <Link to="/create-new-job"> Jobs</Link>
+            <Link to="/create-new-job">
+              {" "}
+              Jobs
+            </Link>
           </li>
           <li>
             <Link to="/"> Alerts</Link>
           </li>
           <li>
-            <Link to="/"> Admin Tools</Link>
+            <Link to="/">
+              {" "}
+              Admin Tools
+            </Link>
           </li>
         </ul>
       </nav>
