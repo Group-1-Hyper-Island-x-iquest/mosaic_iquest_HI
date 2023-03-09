@@ -7,5 +7,5 @@
 }
 
 .divider {
-  @apply;border-[0.5px] bg-mosaicLineGray opacity-25 w-[1240px] mx-auto;
+  @apply border-[0.5px] bg-mosaicLineGray opacity-25 w-[1240px] mx-auto;
 }

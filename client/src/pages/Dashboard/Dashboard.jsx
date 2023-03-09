@@ -10,6 +10,7 @@ import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionAction
 import { Link } from "react-router-dom";
 import InfoTile from "../../components/InfoTile/InfoTile";
 import TileWrapper from "../../components/InfoTile/TileWrapper";
+import CreateTile from "../../components/CreateTile/CreateTile";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const Dashboard = () => {
     <>
       <TileWrapper />
       <div className="divider"> </div>
+      <CreateTile />
       <div className="text-center">
         DashBoard
       </div>

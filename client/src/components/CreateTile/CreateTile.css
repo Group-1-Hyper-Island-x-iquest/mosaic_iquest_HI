@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.createTile {
+  @apply relative w-[354px] font-Arial h-[65px] text-2xl rounded-[12px] p-4 drop-shadow-lg bg-mosaicWhite;
+}
+
+.PlusIcon {
+  @apply absolute top-[-40px] right-[19px];
+}
