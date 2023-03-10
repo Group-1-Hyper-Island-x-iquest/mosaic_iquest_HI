@@ -12,7 +12,7 @@ const Navigation = () => {
       <nav className="top_nav">
         <h2>mosaic</h2>
       </nav>
-      <nav className="mid_nav">
+      {/* <nav className="mid_nav">
         <div className="home_logo">
           <HomeLogo />/ DASHBOARD
         </div>
@@ -68,7 +68,7 @@ const Navigation = () => {
             </Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </header>
     // <div>
     //   <ul className="flex justify-center gap-5">
