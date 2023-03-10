@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 .btn_primary {
-  @apply focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800;
+  @apply text-mosaicButtonBack bg-mosaicButtonGreen w-[155px] h-[47px] text-lg rounded-lg shadow-lg;
+  /* @apply focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800; */
 }
 
 .btn_secondary {
-  @apply text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700;
+  @apply text-mosaicButtonGreen bg-mosaicButtonBack border-[1px] w-[155px] h-[47px] text-lg rounded-lg shadow-lg;
+  /* @apply bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700; */
 }
 
-.btn_cancel {
-  @apply text-white opacity-70 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700;
+.btn_save_inactive {
+  @apply text-mosaicButtonFontInactive bg-mosaicButtonInactive w-[155px] h-[47px] text-lg rounded-lg shadow-lg;
+  /* @apply bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700; */
+}
+
+.btn_see_details {
+  @apply text-mosaicButtonGreen bg-mosaicButtonDetails w-[155px] h-[47px] text-lg rounded-lg shadow-lg;
+}
+
+.btn_add_location {
+  @apply flex justify-center items-center gap-[6px] text-mosaicButtonFontBlack bg-mosaicButtonGold w-[141px] h-[40px] text-sm rounded-lg shadow-lg;
 }

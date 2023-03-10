@@ -23,6 +23,14 @@ module.exports = {
       mosaicLightGray: "#757575",
       mosaicGreen: "#67AC5B",
       mosaicBlue: "#617AFF",
+      mosaicButtonGreen: "#21635C",
+      mosaicButtonGold: "#F7BB6C",
+      mosaicButtonInactive: "#EBEBEB",
+      mosaicButtonBack: "#FBFBFB",
+      mosaicButtonDetails: "#E9EEEE",
+      mosaicButtonFontBlack: "#202020",
+      mosaicButtonFontInactive:
+        "#B8B8B8",
     },
     fontFamily: {
       Comfortaa: [
