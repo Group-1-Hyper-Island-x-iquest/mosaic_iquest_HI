@@ -32,7 +32,7 @@ export const caseSHMI = [
   { type: "number", name: "latitude", label: "Latitude*" },
   { type: "number", name: "longitude", label: "Longitude*" },
   { type: "checkbox", name: "get_coords", label: "Get coordinates from address?" },
-  { type: "number", name: "number of days", label: "Number of days data is retrieved for*" },
+  { type: "number", name: "number_of_days", label: "Number of days data is retrieved for*" },
 ];
 
 export const caseElvaco = [

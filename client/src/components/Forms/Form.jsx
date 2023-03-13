@@ -1,35 +1,30 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 
-const Form = (props) => {
-  const { fields, onSubmit, buttonClass } = props;
-  const [formData, setFormData] = useState({});
+const Form = ({ fields = [], onSubmit = () => {}, buttonClass }) => {
+  const [formData, setFormData] = useState({
+    site_name: "",
+    street_name: "",
+    city: "",
+    country: "",
+    longitude: "",
+    latitude: "",
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let form = { ...formData };
-    form.locations = [
-      {
-        site: formData.site_name,
-        street: formData.street_name,
-        city: formData.city,
-        country: formData.country,
-        lon: formData.longitude,
-        lat: formData.latitude,
-      },
-    ];
-    delete form.site_name;
-    delete form.street_name;
-    delete form.city;
-    delete form.country;
-    delete form.longitude;
-    delete form.latitude;
-    console.log("form", form);
+    const { site_name, street_name, city, country, longitude, latitude } = formData;
+    const form = {
+      ...formData,
+      locations: [
+        { site: site_name, street: street_name, city, country, lon: longitude, lat: latitude },
+      ],
+    };
     onSubmit(form);
   };
 
