@@ -109,37 +109,6 @@ const Dashboard = () => {
       <TileWrapper />
 
       <CreateTileWrapper />
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_primary}`}
-      >
-        Next
-      </Button>
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_secondary}`}
-      >
-        Back
-      </Button>
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_save_inactive}`}
-      >
-        Save
-      </Button>
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_primary}`}
-      >
-        Save
-      </Button>
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_see_details}`}
-      >
-        See details
-      </Button>
-      <Button
-        className={`${BUTTON_TYPE_CLASSES.btn_add_location}`}
-      >
-        Add location{" "}
-        <AiFillPlusCircle size={19} />
-      </Button>
 
       <div className="text-center"></div>
     </>
