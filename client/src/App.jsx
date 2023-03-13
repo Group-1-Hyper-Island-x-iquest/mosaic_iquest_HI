@@ -13,7 +13,9 @@ const App = () => {
   }, []);
 
   const handleConnection = () => {
-    ws.onopen = (res) => res;
+    ws.onopen = (res) => {
+      return res;
+    };
   };
 
   return (

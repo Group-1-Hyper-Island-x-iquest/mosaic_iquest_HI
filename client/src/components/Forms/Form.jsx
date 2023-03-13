@@ -49,7 +49,7 @@ const Form = (props) => {
               onChange={handleInputChange}
             />
           ) : (
-            <div className="w-1/2">
+            <div>
               <input
                 placeholder="Required"
                 className="formInput"
