@@ -4,8 +4,8 @@ import { ws } from "./utils/webSocket";
 
 // Pages
 import Dashboard from "./pages/Dashboard/Dashboard";
-import CreateConnection from "./pages/CreateConnection/CreateConnection";
-import CreateJob from "./pages/CreateJob/CreateJob";
+import CreateConnection from "./pages/Connections/Connections";
+import CreateJob from "./pages/Jobs/Jobs";
 
 const App = () => {
   useEffect(() => {

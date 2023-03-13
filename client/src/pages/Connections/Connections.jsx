@@ -5,7 +5,8 @@ import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionAction
 
 const CreateConnection = () => {
   const dispatch = useDispatch();
-  let { connection } = useSelector((state) => ({ ...state }));
+  const { connection } = useSelector((state) => ({ ...state }));
+  console.log(connection);
 
   useEffect(() => {
     loadConnectionsData();
@@ -21,8 +22,6 @@ const CreateConnection = () => {
       });
     };
   };
-
-  console.log(connection);
 
   return (
     <div className="">
