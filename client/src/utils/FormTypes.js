@@ -4,8 +4,8 @@ export const connectionType = [
     name: "connection type",
     label: "Type",
     options: [
-      { value: "smhi", label: "smhi" },
-      { value: "elvaco", label: "elvaco" },
+      { value: "SHMI", label: "smhi" },
+      { value: "ELVACO", label: "elvaco" },
     ],
   },
 ];
