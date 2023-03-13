@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+textarea {
+  resize: none !important;
+}
+
+.form {
+  @apply w-full;
+}
+
+.formLabel {
+  @apply block my-2 text-xs font-medium text-mosaicBlack;
+}
+
+.formInput {
+  @apply py-[8px] px-4 border rounded-[8px] bg-mosaicLightGray border-mosaicBorderGray text-mosaicDarkGray text-xs focus:ring-mosaicDarkGray focus:border-mosaicBorderGray;
+}
+
+.formTextArea {
+  @apply py-[10px] px-4 border rounded-[8px] bg-mosaicLightGray border-mosaicBorderGray text-mosaicDarkGray text-xs focus:ring-mosaicDarkGray focus:border-mosaicBorderGray w-full;
+}
+
+.formSelect {
+  @apply bg-mosaicLightGray border border-mosaicBorderGray text-mosaicDarkGray text-sm rounded-lg focus:ring-mosaicLightGray focus:border-mosaicBorderGray w-full p-2.5;
+}

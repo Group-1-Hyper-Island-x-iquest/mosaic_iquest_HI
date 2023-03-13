@@ -8,6 +8,7 @@ module.exports = {
       topNavImage:
         "url('./assets/images/Header.png')",
     },
+
     screens: {
       sm: "480px",
       md: "768px",
@@ -20,8 +21,8 @@ module.exports = {
       mosaicLineGray: "#C4C7CC",
       mosaicBorderGray: "#D0D5DD",
       mosaicDarkGray: "#757575",
-      mosaicLightGray: "#757575",
-      mosaicGreen: "#67AC5B",
+      mosaicLightGray: "#FBFBFB",
+      mosaicGreen: "#21635C",
       mosaicBlue: "#617AFF",
       mosaicButtonGreen: "#21635C",
       mosaicButtonGold: "#F7BB6C",
@@ -31,6 +32,7 @@ module.exports = {
       mosaicButtonFontBlack: "#202020",
       mosaicButtonFontInactive:
         "#B8B8B8",
+      mosaicBlack: "#000",
     },
     fontFamily: {
       Comfortaa: [

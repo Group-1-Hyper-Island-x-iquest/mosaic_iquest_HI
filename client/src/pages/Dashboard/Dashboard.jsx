@@ -1,5 +1,6 @@
 import React, {
   useEffect,
+  useState,
 } from "react";
 import { ws } from "../../utils/webSocket";
 import {
@@ -19,33 +20,82 @@ import ProfileLogo from "../../assets/logo/ProfileLogo";
 import { FaUserCircle } from "react-icons/fa";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import {
+  showModal,
+  hideModal,
+} from "../../reducers-actions/modalActions";
+import Form from "../../components/Forms/Form";
+import {
+  connectionType,
+  caseSHMI,
+} from "../../utils/FormTypes";
+import { Modal } from "antd";
 
 const Dashboard = () => {
+  const [modalOpen, setModalOpen] =
+    useState(false);
+  const [type, setType] =
+    useState(null);
   const dispatch = useDispatch();
-  let { connection } = useSelector(
-    (state) => ({ ...state })
-  );
 
-  useEffect(() => {
-    loadConnectionsData();
-  }, []);
+  // let { connection } = useSelector(
+  //   (state) => ({ ...state })
+  // );
 
-  const loadConnectionsData = () => {
-    ws.send(
-      JSON.stringify({
-        type: "MineService",
-        action: "LOAD_ALL_CONNECTIONS",
-      })
-    );
-    ws.onmessage = (res) => {
-      dispatch({
-        type: CONNECTION_ACTION_TYPES.LOAD_ALL_CONNECTIONS,
-        payload: JSON.parse(res.data),
-      });
-    };
+  const handleShowModal = () => {
+    setModalOpen(true);
+    setType(null);
+    dispatch(showModal());
   };
 
-  console.log(connection);
+  const handleHideModal = () => {
+    setModalOpen(false);
+    dispatch(hideModal());
+  };
+
+  // const loadConnectionsData = () => {
+  //   ws.send(
+  //     JSON.stringify({
+  //       type: "MineService",
+  //       action: "LOAD_ALL_CONNECTIONS",
+  //     })
+  //   );
+  //   ws.onmessage = (res) => {
+  //     dispatch({
+  //       type: CONNECTION_ACTION_TYPES.LOAD_ALL_CONNECTIONS,
+  //       payload: JSON.parse(res.data),
+  //     });
+  //   };
+
+  const handleSubmit = (formData) => {
+    console.log(
+      formData["connection type"]
+    );
+    // step 1: store the formData val in useState // reducer
+    setType(
+      formData["connection type"]
+    );
+  };
+
+  const RenderFormChildren = ({
+    type,
+  }) => {
+    switch (type) {
+      case "smhi": {
+        return (
+          <Form
+            fields={caseSHMI}
+            buttonClass={
+              BUTTON_TYPE_CLASSES.btn_primary
+            }
+            onSubmit={handleSubmit}
+          />
+        );
+      }
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -111,6 +161,38 @@ const Dashboard = () => {
       <CreateTileWrapper />
 
       <div className="text-center"></div>
+
+      <div className="flex">
+        <Modal
+          okButtonProps={{
+            hidden: true,
+          }}
+          cancelButtonProps={{
+            hidden: true,
+          }}
+          destroyOnClose
+          open={modalOpen}
+          onCancel={handleHideModal}
+        >
+          {!type && (
+            <Form
+              fields={connectionType}
+              buttonClass={
+                BUTTON_TYPE_CLASSES.btn_primary
+              }
+              onSubmit={handleSubmit}
+            />
+          )}
+          <RenderFormChildren
+            type={type}
+          />
+        </Modal>
+        <button
+          onClick={handleShowModal}
+        >
+          Create connection
+        </button>
+      </div>
     </>
   );
 };
