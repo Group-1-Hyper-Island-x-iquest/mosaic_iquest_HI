@@ -10,6 +10,7 @@ import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionAction
 import TileWrapper from "../../components/InfoTile/TileWrapper";
 import CreateTileWrapper from "../../components/CreateTile/CreateTileWrapper";
 import { Modal } from "antd";
+import LoadingSpinner from "../../components/Layout/LoadingSpinner";
 
 const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,6 +35,7 @@ const Dashboard = () => {
 
   const handleHideModal = () => {
     setModalOpen(false);
+    setLoading(false);
     dispatch(hideModal());
   };
 
@@ -74,7 +76,7 @@ const Dashboard = () => {
   return (
     <>
       {loading ? (
-        "Loading..."
+        <LoadingSpinner />
       ) : (
         <>
           <TileWrapper handleShowModal={handleShowModal} />
