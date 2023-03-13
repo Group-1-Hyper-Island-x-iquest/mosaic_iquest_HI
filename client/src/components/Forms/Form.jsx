@@ -12,7 +12,25 @@ const Form = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(formData);
+    let form = { ...formData };
+    form.locations = [
+      {
+        site: formData.site_name,
+        street: formData.street_name,
+        city: formData.city,
+        country: formData.country,
+        lon: formData.longitude,
+        lat: formData.latitude,
+      },
+    ];
+    delete form.site_name;
+    delete form.street_name;
+    delete form.city;
+    delete form.country;
+    delete form.longitude;
+    delete form.latitude;
+    console.log("form", form);
+    onSubmit(form);
   };
 
   const renderField = (field) => {

@@ -35,7 +35,9 @@ const Dashboard = () => {
   };
 
   const handleSubmit = (formData) => {
+    console.log(formData);
     setLoading(true);
+
     try {
       console.log(formData["connection type"]);
       console.log("formData", formData);
@@ -45,7 +47,13 @@ const Dashboard = () => {
 
       if (connection !== null) {
         console.log("connection is valid");
-        ws.send(JSON.stringify(formData));
+        ws.send(
+          JSON.stringify({
+            type: "MineService",
+            action: "CREATE_CONNECTION",
+            connection: formData,
+          })
+        );
         setOk(true);
         setLoading(false);
         handleHideModal();
