@@ -1,8 +1,8 @@
-import "./Jobs.css";
 import React from "react";
 
 const CreateJob = () => {
-  return <>CreateJob</>;
+  return <div>CreateJob</div>;
+
 };
 
 export default CreateJob;

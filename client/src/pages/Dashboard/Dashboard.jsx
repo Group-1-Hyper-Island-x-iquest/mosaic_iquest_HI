@@ -1,7 +1,13 @@
-import React, {
-  useEffect,
-  useState,
-} from "react";
+
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Button, { BUTTON_TYPE_CLASSES } from "../../components/Button/Button";
+import { showModal, hideModal } from "../../reducers-actions/modalActions";
+import Form from "../../components/Forms/Form";
+import { connectionType, caseSHMI, caseElvaco } from "../../utils/FormTypes";
+
+
 import { ws } from "../../utils/webSocket";
 import {
   useDispatch,
@@ -29,14 +35,26 @@ import {
   connectionType,
   caseSHMI,
 } from "../../utils/FormTypes";
+
 import { Modal } from "antd";
+import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
+import { ws } from "../../utils/webSocket";
 
 const Dashboard = () => {
-  const [modalOpen, setModalOpen] =
-    useState(false);
-  const [type, setType] =
-    useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  const [type, setType] = useState(null);
+
+  const [loading, setLoading] = useState(false);
+  const [isConnectionCreated, setIsConnectionCreated] = useState(false);
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+  const { connection } = useSelector((state) => ({ ...state }));
+
+  console.log("IS CONNECTION CREATED ", isConnectionCreated);
+  console.log("type", type);
+  console.log("connection", connection);
 
   // let { connection } = useSelector(
   //   (state) => ({ ...state })
@@ -53,52 +71,103 @@ const Dashboard = () => {
     dispatch(hideModal());
   };
 
-  // const loadConnectionsData = () => {
-  //   ws.send(
-  //     JSON.stringify({
-  //       type: "MineService",
-  //       action: "LOAD_ALL_CONNECTIONS",
-  //     })
-  //   );
-  //   ws.onmessage = (res) => {
-  //     dispatch({
-  //       type: CONNECTION_ACTION_TYPES.LOAD_ALL_CONNECTIONS,
-  //       payload: JSON.parse(res.data),
-  //     });
-  //   };
+  const handleSubmit = async (formData) => {
+    console.log(formData);
+    setLoading(true);
 
-  const handleSubmit = (formData) => {
-    console.log(
-      formData["connection type"]
-    );
-    // step 1: store the formData val in useState // reducer
-    setType(
-      formData["connection type"]
-    );
-  };
+    try {
+      console.log(formData["connection type"]);
+      console.log("formData", formData);
+      // store the formData val in useState // reducer
+      setType(formData["connection type"]);
+      dispatch({
+        type: CONNECTION_ACTION_TYPES.CREATE_CONNECTION,
+        payload: formData,
+      });
 
-  const RenderFormChildren = ({
-    type,
-  }) => {
-    switch (type) {
-      case "smhi": {
-        return (
-          <Form
-            fields={caseSHMI}
-            buttonClass={
-              BUTTON_TYPE_CLASSES.btn_primary
-            }
-            onSubmit={handleSubmit}
-          />
+      if (connection !== null) {
+        console.log("connection is valid");
+        await ws.send(
+          JSON.stringify({
+            type: "MineService",
+            action: "CREATE_CONNECTION",
+            connection: formData,
+          })
+
         );
+        setIsConnectionCreated(true);
+        setLoading(false);
+        handleHideModal();
+        setConfirmationModalOpen(true);
       }
-      default:
-        return null;
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
     }
   };
 
   return (
     <>
+      {loading ? (
+        "Loading..."
+      ) : (
+        <div className="flex">
+          <Modal
+            isConnectionCreated
+            okButtonProps={{ hidden: true }}
+            cancelButtonProps={{ hidden: true }}
+            open={modalOpen}
+            onCancel={handleHideModal}
+            destroyOnClose
+          >
+            {type ? (
+              <Form
+                fields={type === "SHMI" ? caseSHMI : caseElvaco}
+                buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+                onSubmit={handleSubmit}
+              />
+            ) : (
+              <Form
+                fields={connectionType}
+                onSubmit={handleSubmit}
+                buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+              />
+            )}
+          </Modal>
+          <button onClick={handleShowModal}>Create connection</button>
+          {/* Confirmation modal */}
+          {isConnectionCreated && (
+            <Modal
+              okButtonProps={{ hidden: true }}
+              cancelButtonProps={{ hidden: true }}
+              isConnectionCreated
+              ButtonProps={{ hidden: true }}
+              open={isConnectionCreated && confirmationModalOpen}
+              onCancel={() => setConfirmationModalOpen(false)}
+            >
+              <p>Connection Created</p>
+              <Button
+                buttonType={BUTTON_TYPE_CLASSES.btn_primary}
+                onClick={() => setConfirmationModalOpen(false)}
+              >
+                Close
+              </Button>
+              <Button
+                onClick={() => navigate("/create-new-connection")}
+                buttonType={BUTTON_TYPE_CLASSES.btn_primary}
+              >
+                Details
+              </Button>
+              <Button
+                onClick={() => navigate("/create-new-job")}
+                buttonType={BUTTON_TYPE_CLASSES.btn_secondary}
+              >
+                Create Job
+              </Button>
+            </Modal>
+          )}
+        </div>
+      )}
       <nav className="mid_nav">
         <div className="home_logo">
           <HomeLogo />/ DASHBOARD
