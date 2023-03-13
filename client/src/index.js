@@ -6,8 +6,7 @@ import store from "./reducers-store/store";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import App from "./App";
-import "./styles/index.css";
-import "./styles/Button.css";
+import "./index.css";
 import "./styles/Form.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
