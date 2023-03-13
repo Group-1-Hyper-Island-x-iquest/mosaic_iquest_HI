@@ -1,4 +1,4 @@
-import "./CreateJob.css";
+import "./Jobs.css";
 import React from "react";
 
 const CreateJob = () => {
