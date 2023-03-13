@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     backgroundImage: {
-      topNavImage: "url('../assets/images/Header.png')",
+      topNavImage:
+        "url('./assets/images/Header.png')",
     },
 
     screens: {
@@ -13,16 +16,29 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
+      mosaicWhite: "#FCFCFC",
       background: "#EEEEEE",
+      mosaicLineGray: "#C4C7CC",
       mosaicBorderGray: "#D0D5DD",
       mosaicDarkGray: "#757575",
       mosaicLightGray: "#FBFBFB",
       mosaicGreen: "#21635C",
       mosaicBlue: "#617AFF",
+      mosaicButtonGreen: "#21635C",
+      mosaicButtonGold: "#F7BB6C",
+      mosaicButtonInactive: "#EBEBEB",
+      mosaicButtonBack: "#FBFBFB",
+      mosaicButtonDetails: "#E9EEEE",
+      mosaicButtonFontBlack: "#202020",
+      mosaicButtonFontInactive:
+        "#B8B8B8",
       mosaicBlack: "#000",
     },
     fontFamily: {
-      Comfortaa: ["Comfortaa", "sans-serif"],
+      Comfortaa: [
+        "Comfortaa",
+        "sans-serif",
+      ],
       Arial: ["Arial", "sans-serif"],
     },
     extend: {

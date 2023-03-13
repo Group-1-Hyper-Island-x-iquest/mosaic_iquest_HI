@@ -8,6 +8,7 @@ const CreateConnection = () => {
   const { connection } = useSelector((state) => ({ ...state }));
   console.log(connection);
 
+
   useEffect(() => {
     loadConnectionsData();
     // eslint-disable-next-line
@@ -22,6 +23,9 @@ const CreateConnection = () => {
       });
     };
   };
+
+
+  console.log(connection);
 
   return (
     <div className="">
