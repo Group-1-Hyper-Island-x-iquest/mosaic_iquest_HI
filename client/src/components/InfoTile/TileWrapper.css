@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tile_container {
+  @apply flex justify-center flex space-x-24 mb-[50px] mt-[130px];
+}
