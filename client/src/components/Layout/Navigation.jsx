@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HomeLogo from "../../assets/logo/HomeLogo";
-import ProfileLogo from "../../assets/logo/ProfileLogo";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaHome } from "react-icons/fa";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
@@ -12,20 +10,13 @@ const Navigation = () => {
       <nav className="top_nav">
         <h2>mosaic</h2>
       </nav>
-      {/* <nav className="mid_nav">
+      <nav className="mid_nav">
         <div className="home_logo">
-          <HomeLogo />/ DASHBOARD
+          <FaHome size={22} />/ DASHBOARD
         </div>
         <div className="searchBarBox">
-          <input
-            type="search"
-            placeholder="Search"
-            className="searchBar"
-          />
-          <RxMagnifyingGlass
-            className="searchGlass"
-            size={26}
-          />
+          <input type="search" placeholder="Search" className="searchBar" />
+          <RxMagnifyingGlass className="searchGlass" size={26} />
         </div>
         <div className="profile_logo">
           {" "}
@@ -36,9 +27,7 @@ const Navigation = () => {
             size={23}
           />
           <p>HI_MINER</p>
-          <MdOutlineKeyboardArrowDown
-            size={23}
-          />
+          <MdOutlineKeyboardArrowDown size={23} />
         </div>
       </nav>
       <nav className="bottom_nav">
@@ -47,48 +36,20 @@ const Navigation = () => {
             <Link to="/"> Home</Link>
           </li>
           <li>
-            <Link to="/create-new-connection">
-              {" "}
-              Connections
-            </Link>
+            <Link to="/create-new-connection"> Connections</Link>
           </li>
           <li>
-            <Link to="/create-new-job">
-              {" "}
-              Jobs
-            </Link>
+            <Link to="/create-new-job"> Jobs</Link>
           </li>
           <li>
             <Link to="/"> Alerts</Link>
           </li>
           <li>
-            <Link to="/">
-              {" "}
-              Admin Tools
-            </Link>
+            <Link to="/"> Admin Tools</Link>
           </li>
         </ul>
-      </nav> */}
+      </nav>
     </header>
-    // <div>
-    //   <ul className="flex justify-center gap-5">
-    //     <li>
-    //       <Link to="/" className="text-blue-500 font-Comfortaa">
-    //         dashboard
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/create-new-connection" className="text-blue-500">
-    //         Create New Connection
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/create-new-job" className="text-blue-500">
-    //         Create New job
-    //       </Link>
-    //     </li>
-    //   </ul>
-    // </div>
   );
 };
 

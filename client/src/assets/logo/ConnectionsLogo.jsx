@@ -2,22 +2,9 @@ import React from "react";
 
 const ConnectionsLogo = () => {
   return (
-    <svg
-      width="77"
-      height="76"
-      viewBox="0 0 77 76"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="77" height="76" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_dd_2_16317)">
-        <rect
-          x="3.33838"
-          y="2"
-          width="70"
-          height="70"
-          rx="12"
-          fill="#617AFF"
-        />
+        <rect x="3.33838" y="2" width="70" height="70" rx="12" fill="#617AFF" />
         <path
           d="M35.621 23.9306L44.0166 15.535C46.4202 13.6666 47.9271 13.0535 50.9866 13.0005C53.4125 12.9838 54.6393 13.397 56.6892 14.5846C59.3334 16.4444 60.2994 17.8108 61.2831 20.7625C61.8177 24.2478 61.5815 25.7636 60.6494 28.0492C60.1556 29.1044 59.8381 29.6073 59.2238 30.4253L48.2936 41.3555C45.4973 43.432 43.8988 43.9304 41.0069 43.89C37.0275 43.4652 35.4539 42.5726 33.4033 40.2466C33.0512 39.3468 33.0556 38.8304 33.7201 37.8705C34.5043 37.1965 35.0135 37.1827 35.9378 37.2369C36.3463 37.393 36.5457 37.5513 36.8883 37.8705C40.7829 40.5612 42.6225 39.9157 45.7591 37.8705L55.8972 27.7324C57.7482 24.6024 57.969 22.8369 55.8972 19.6536C52.6803 16.8602 50.7407 16.5503 47.0264 18.7032C47.0264 18.7032 38.5733 27.276 38.1555 27.574C37.7377 27.872 35.5317 28.2405 34.9874 26.9404C34.4431 25.6403 34.7422 24.9097 35.621 23.9306Z"
           fill="#F5F5F5"
@@ -35,12 +22,9 @@ const ConnectionsLogo = () => {
           width="76"
           height="76"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood
-            flood-opacity="0"
-            result="BackgroundImageFix"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -53,11 +37,7 @@ const ConnectionsLogo = () => {
             type="matrix"
             values="0 0 0 0 0.0627451 0 0 0 0 0.0941176 0 0 0 0 0.156863 0 0 0 0.06 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_2_16317"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_16317" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
