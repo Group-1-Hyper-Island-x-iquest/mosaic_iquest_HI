@@ -9,6 +9,8 @@ const ModalComponent = ({ visible, onClose, children }) => {
       cancelButtonProps={{ hidden: true }}
       onCancel={onClose}
       onOk={onClose}
+      closable={false}
+      destroyOnClose
     >
       {children}
     </Modal>
