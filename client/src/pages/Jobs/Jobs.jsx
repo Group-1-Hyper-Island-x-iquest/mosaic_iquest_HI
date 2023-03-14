@@ -1,7 +1,5 @@
-import "./Jobs.css";
 import React from "react";
 import { Steps, ConfigProvider } from "antd";
-
 import "./Jobs.css";
 
 const CreateJob = () => {
@@ -44,27 +42,3 @@ const CreateJob = () => {
 
 export default CreateJob;
 
-// const CreateJob = () => {
-//   const description = 'This is a description';
-
-//   return <>
-//   <div className="progress-bar-container">
-//      <Steps
-//      className="progress-bar"
-//       progressDot
-//       current={1}
-//       items={[
-//         {
-//           title: 'Select'
-//         },
-//         {
-//           title: 'Review'
-//         },
-//         {
-//           title: 'Save'
-//         },
-//       ]}
-//     />
-//     </div>
-//   </>;
-// };

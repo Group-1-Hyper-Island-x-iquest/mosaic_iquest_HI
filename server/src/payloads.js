@@ -337,7 +337,7 @@ const responses = [
 ];
 
 const createConnectionResponse = (data) => {
-  const uuid = v4();
+  const uuid = "v4replacement";
   return {
     action: "CREATED_CONNECTION",
     payload: {

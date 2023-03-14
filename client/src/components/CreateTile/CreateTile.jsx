@@ -2,17 +2,13 @@ import React from "react";
 import "./CreateTile.css";
 
 const CreateTile = (props) => {
-  const { title, icon } = props;
+  const { title, icon, handleShowModal } = props;
   return (
     <>
-      <div className="createTile">
-        <h1 className="create_tile_title">
-          {title}
-        </h1>
-        <div className="plus_icon">
-          {icon}
-        </div>
-      </div>
+      <button onClick={handleShowModal} className="createTile">
+        <h1 className="create_tile_title">{title}</h1>
+        <div className="plus_icon">{icon}</div>
+      </button>
     </>
   );
 };

@@ -9,6 +9,7 @@
 .test {
   @apply mt-[29px];
 }
+
 h2 {
   @apply font-bold ml-[25px];
 }
