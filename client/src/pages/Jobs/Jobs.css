@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.progress-bar-container {
+    @apply w-[30%] mx-auto;
+}
+
+.progress-bar {
+  @apply mx-auto mt-[-50px] text-mosaicButtonGold;
+}
+
+.jobs-page-title {
+  @apply text-[24px] font-bold;
+}
+
+.jobs-page-description {
+  @apply text-[16px];
+}
