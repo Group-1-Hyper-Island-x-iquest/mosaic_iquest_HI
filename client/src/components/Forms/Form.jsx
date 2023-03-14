@@ -37,8 +37,8 @@ const Form = ({ fields = [], onSubmit = () => {}, buttonClass }) => {
           <label className="formLabel" htmlFor={name}>
             {label}
           </label>
-          <select className="formSelect" name={name} onChange={handleInputChange}>
-            <option>Please select</option>
+          <select className="formSelect" name={name} onChange={handleInputChange} required>
+            <option value="">Please select</option>
             {options.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -69,6 +69,7 @@ const Form = ({ fields = [], onSubmit = () => {}, buttonClass }) => {
                 type={type}
                 name={name}
                 onChange={handleInputChange}
+                required={field.type === "text"}
               />
             </div>
           )}

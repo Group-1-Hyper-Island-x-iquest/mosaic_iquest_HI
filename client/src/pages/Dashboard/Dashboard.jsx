@@ -16,7 +16,7 @@ import Form from "../../components/Forms/Form";
 import CreateTileWrapper from "../../components/CreateTile/CreateTileWrapper";
 import TileWrapper from "../../components/InfoTile/TileWrapper";
 import LoadingSpinner from "../../components/Layout/LoadingSpinner";
-import ModalComponent from "../../components/Modal/Modal";
+import ModalComponent from "../../components/Modal/ModalComponent";
 //websocket
 import { ws } from "../../utils/webSocket";
 
@@ -38,10 +38,12 @@ const Dashboard = () => {
 
   const handleMainModalClose = () => {
     dispatch(hideMainModal());
+    setLoading(false);
   };
 
   const handleConfirmationModalClose = () => {
     dispatch(hideConfirmationModal());
+    setLoading(false);
   };
 
   const handleSubmit = async (formData) => {
