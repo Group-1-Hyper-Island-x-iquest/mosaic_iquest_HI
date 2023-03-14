@@ -1,41 +1,33 @@
 import React, { useState } from "react";
+import { hideModal } from "../../reducers-actions/modalActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Button, { BUTTON_TYPE_CLASSES } from "../../components/Button/Button";
 import Form from "../../components/Forms/Form";
-import { showModal, hideModal } from "../../reducers-actions/modalActions";
 import { connectionType, caseSHMI, caseElvaco } from "../../utils/FormTypes";
 import { ws } from "../../utils/webSocket";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
 import TileWrapper from "../../components/InfoTile/TileWrapper";
 import CreateTileWrapper from "../../components/CreateTile/CreateTileWrapper";
-import { Modal } from "antd";
 import LoadingSpinner from "../../components/Layout/LoadingSpinner";
+import ModalComponent from "../../components/Modal/Modal";
 
 const Dashboard = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  // const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  // const navigate = useNavigate();
+  // console.log("IS CONNECTION CREATED ", isConnectionCreated);
+  // console.log("type", type);
+  // console.log("connection", connection);
+
+  const { connection, modal } = useSelector((state) => ({ ...state }));
+  console.log(modal);
+
+  const dispatch = useDispatch();
   const [type, setType] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isConnectionCreated, setIsConnectionCreated] = useState(false);
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const { connection } = useSelector((state) => ({ ...state }));
-  console.log("IS CONNECTION CREATED ", isConnectionCreated);
-  console.log("type", type);
-  console.log("connection", connection);
-
-  const handleShowModal = () => {
-    setModalOpen(true);
-    setType(null);
-    dispatch(showModal());
-  };
-
-  const handleHideModal = () => {
-    setModalOpen(false);
-    setLoading(false);
+  const handleModalClose = () => {
     dispatch(hideModal());
   };
 
@@ -64,8 +56,8 @@ const Dashboard = () => {
         );
         setIsConnectionCreated(true);
         setLoading(false);
-        handleHideModal();
-        setConfirmationModalOpen(true);
+        // handleHideModal();
+        // setConfirmationModalOpen(true);
       }
     } catch (error) {
       console.log(error);
@@ -79,19 +71,12 @@ const Dashboard = () => {
         <LoadingSpinner />
       ) : (
         <>
-          <TileWrapper handleShowModal={handleShowModal} />
-          <CreateTileWrapper handleShowModal={handleShowModal} />
+          <TileWrapper />
+          <CreateTileWrapper />
         </>
       )}
 
-      <Modal
-        isConnectionCreated
-        okButtonProps={{ hidden: true }}
-        cancelButtonProps={{ hidden: true }}
-        open={modalOpen}
-        onCancel={handleHideModal}
-        destroyOnClose
-      >
+      <ModalComponent visible={modal.visible} onClose={handleModalClose}>
         {type ? (
           <Form
             fields={type === "SHMI" ? caseSHMI : caseElvaco}
@@ -105,10 +90,10 @@ const Dashboard = () => {
             buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
           />
         )}
-      </Modal>
+      </ModalComponent>
 
       {/* Confirmation modal */}
-      {isConnectionCreated && (
+      {/* {isConnectionCreated && (
         <Modal
           okButtonProps={{ hidden: true }}
           cancelButtonProps={{ hidden: true }}
@@ -137,7 +122,7 @@ const Dashboard = () => {
             Create Job
           </Button>
         </Modal>
-      )}
+      )} */}
     </>
   );
 };
