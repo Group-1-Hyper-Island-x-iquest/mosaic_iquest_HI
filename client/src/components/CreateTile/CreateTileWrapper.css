@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .create_wrapper {
-  @apply flex justify-center flex space-x-24 mb-[50px] mt-[166px];
+  @apply flex justify-center space-x-24 mb-[50px] mt-[166px];
 }

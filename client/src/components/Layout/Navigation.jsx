@@ -33,19 +33,19 @@ const Navigation = () => {
       <nav className="bottom_nav">
         <ul className="nav_links">
           <li>
-            <Link to="/"> Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/create-new-connection"> Connections</Link>
+            <Link to="/create-new-connection">Connections</Link>
           </li>
           <li>
-            <Link to="/create-new-job"> Jobs</Link>
+            <Link to="/create-new-job">Jobs</Link>
           </li>
           <li>
-            <Link to="/"> Alerts</Link>
+            <Link to="/">Alerts</Link>
           </li>
           <li>
-            <Link to="/"> Admin Tools</Link>
+            <Link to="/">Admin Tools</Link>
           </li>
         </ul>
       </nav>
