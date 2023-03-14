@@ -32,3 +32,17 @@ main {
 .nav_links {
   @apply flex gap-12 font-bold uppercase;
 }
+
+.home_logo {
+  @apply flex gap-[15px];
+}
+.profile_logo {
+  @apply flex gap-[15px];
+}
+
+.searchBarBox {
+  @apply absolute right-72;
+}
+.searchGlass {
+  @apply absolute right-5 top-2;
+}

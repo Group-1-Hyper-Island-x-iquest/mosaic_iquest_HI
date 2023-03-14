@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { ws } from "../../utils/webSocket";
 import { useDispatch, useSelector } from "react-redux";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
-import { Link } from "react-router-dom";
 
 //The component initializes a Redux dispatch variable using the useDispatch hook
 //and a connection variable using the useSelector hook to extract the connection state from
@@ -10,7 +9,9 @@ import { Link } from "react-router-dom";
 
 const CreateConnection = () => {
   const dispatch = useDispatch();
-  let { connection } = useSelector((state) => ({ ...state }));
+  const { connection } = useSelector((state) => ({ ...state }));
+  console.log(connection);
+
 
 //The useEffect hook is used to call the loadConnectionsData function when the component 
 //mounts. 
@@ -19,6 +20,7 @@ const CreateConnection = () => {
 
   useEffect(() => {
     loadConnectionsData();
+    // eslint-disable-next-line
   }, []);
 
   const loadConnectionsData = () => {
@@ -30,6 +32,7 @@ const CreateConnection = () => {
       });
     };
   };
+
 
   console.log(connection);
 

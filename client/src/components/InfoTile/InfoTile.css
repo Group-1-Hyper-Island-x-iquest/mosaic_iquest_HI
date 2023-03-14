@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tile_beauty {
+  @apply w-[243px] font-Arial h-[123px] text-2xl rounded-[12px] p-4 drop-shadow-lg bg-mosaicWhite;
+}
+
+.test {
+  @apply mt-[29px];
+}
+
+h2 {
+  @apply font-bold ml-[25px];
+}
