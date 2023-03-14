@@ -4,13 +4,13 @@ export const connectionType = [
     name: "connection type",
     label: "Type",
     options: [
-      { value: "SHMI", label: "smhi" },
+      { value: "SMHI", label: "smhi" },
       { value: "ELVACO", label: "elvaco" },
     ],
   },
 ];
 
-export const caseSHMI = [
+export const caseSMHI = [
   { type: "text", name: "name", label: "Name*" },
   { type: "textarea", name: "description", label: "Description" },
   { type: "text", name: "site_name", label: "Site name*" },

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //redux
-import { connectionType, caseSHMI, caseElvaco } from "../../utils/FormTypes";
+import { connectionType, caseSMHI, caseElvaco } from "../../utils/FormTypes";
 import { CONNECTION_ACTION_TYPES } from "../../reducers-actions/connectionActions";
 import {
   hideConfirmationModal,
@@ -81,17 +81,17 @@ const Dashboard = () => {
   const renderForm = () => {
     switch (currentModalType) {
       case MODAL_ACTION_TYPES.SHOW_MODAL_CONNECTION:
-        return type ? (
-          <Form
-            fields={type === "SHMI" ? caseSHMI : caseElvaco}
-            buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
-            onSubmit={handleSubmit}
-          />
-        ) : (
+        return !type ? (
           <Form
             fields={connectionType}
             onSubmit={handleSubmit}
             buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+          />
+        ) : (
+          <Form
+            fields={type === "SMHI" ? caseSMHI : caseElvaco}
+            buttonClass={BUTTON_TYPE_CLASSES.btn_primary}
+            onSubmit={handleSubmit}
           />
         );
       case MODAL_ACTION_TYPES.SHOW_MODAL_JOB:
